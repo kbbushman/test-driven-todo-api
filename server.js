@@ -65,7 +65,7 @@ app.post('/api/todos', function create(req, res) {
 
   var newObject = {"_id": newId, "task": newTask, "description": newDescription};
   todos.push(newObject);
-  res.json(newObject)
+  res.json(newObject);
 });
 
 app.get('/api/todos/:id', function show(req, res) {
@@ -97,16 +97,12 @@ app.delete('/api/todos/:id', function destroy(req, res) {
    * with success.
    */
    var sentId = req.params.id;
-   var recordToDelete;
-
    for(var i = 0; i < todos.length; i++) {
-      if(sentId == todos[i]["_id"]) {
-//      recordToDelete = todos[i];f
-        todos.splice(todos[i], 1);
-//      console.log(todos[i]);
+      if(sentId == todos[i]['_id']) {
+          todos.splice(todos[i], 1);
       }
-   }
-   res.send("204");
+    }
+    res.send("204");
 });
 
 /**********
